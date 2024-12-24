@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="src/app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Pakai.Batu | Official Webstore</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">
+        <img src="img/pakaibatu.png" alt="logo" />
+      </a>
+      <div class="navbar-nav">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#products">Produk</a>
+        <a href="#batu">Koleksi Batu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+      <div class="navbar-extra">
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+        </a>
+        <a href="#" id="menu">
+          <i data-feather="menu"></i>
+        </a>
+      </div>
+      <div class="shopping-cart">
+        <div class="cart-item">
+          <img src="img/cincin_A.jpg" alt="p-1" />
+          <div class="item-detail">
+            <h3>Cincin Batu "Tipe A"</h3>
+            <div class="item-price">IDR 15K</div>
+          </div>
+          <i data-feather="trash-2" class="delete-item"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero" id="home">
+      <main class="content">
+        <h1>Crafted by Hand, Worn with Heart</h1>
+        <h2>Elevate Your Style with Unique Handmade Jewelry!</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit voluptatibus amet quas consequatur alias reiciendis quae nam odit, vero molestias corrupti sequi error quisquam sint? Fugit dolor quasi voluptatibus! A!</p>
+        <a href="#produk" class="cta">Pesan Sekarang</a>
+      </main>
+    </section>
+
+    <!-- about section -->
+    <section id="about" class="about">
+      <h2>--- Tentang <span>Kami</span> ---</h2>
+      <div class="row">
+        <div class="about-img">
+          <img src="img/2.jpg" alt="tentang kami" />
+        </div>
+        <div class="content">
+          <h3>Kenapa Memilih Kami?</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo necessitatibus omnis cupiditate accusantium ullam illum eligendi, doloremque veritatis neque dolores tempora nobis deleniti modi voluptatem, doloribus vero qui
+            facilis sit?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem tempora amet deserunt alias eveniet a culpa, vel repudiandae earum iusto excepturi distinctio quam sint dignissimos delectus ab. Nostrum, corrupti dignissimos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- produk section -->
+    <section id="products" class="products" x-data="products">
+      <h2>--- Produk <span>Kami</span> ---</h2>
+      <div class="row">
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="product-card">
+            <div class="product-icons">
+              <a href="#">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <use href="img/feather-sprite.svg#shopping-cart" />
+                </svg>
+              </a>
+              <a href="#" class="item-detail-button">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <use href="img/feather-sprite.svg#eye" />
+                </svg>
+              </a>
+            </div>
+            <div class="product-img">
+              <img :src="`img/${item.img}`" :alt="item.name" />
+            </div>
+            <div class="product-content">
+              <h3 x-text="item.name"></h3>
+              <div class="product-price" x-text="item.price"></div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <!-- produk preview -->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container" data-target="p-1">
+        <a href="#" class="close-item"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img src="img/cincin_A.jpg" alt="p-1" />
+          <div class="product-content">
+            <h3>Cincin Batu "Tipe A"</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum a dolor mollitia delectus assumenda modi.</p>
+            <div class="product-price">IDR 15K</div>
+            <a href="#"><i data-feather="shopping-cart"></i>Tambahkan ke Keranjang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- koleksi batu -->
+    <section id="batu" class="batu">
+      <h2>--- Koleksi <span>Batu</span> ---</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam dolorem necessitatibus, voluptatem illum blanditiis</p>
+      <div class="row">
+        <div class="batu-card">
+          <img src="img/batuA.jpg" alt="batuA" class="batu-card-img" />
+          <h3 class="batu-card-title">Gold Rurilated</h3>
+          <p class="batu-card-price">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto libero quas sapiente facere minus ipsam.</p>
+        </div>
+        <div class="batu-card">
+          <img src="img/batuB.jpg" alt="batBA" class="batu-card-img" />
+          <h3 class="batu-card-title">Gray Labradorite</h3>
+          <p class="batu-card-price">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus consequatur corrupti mollitia adipisci ab ad.</p>
+        </div>
+        <div class="batu-card">
+          <img src="img/batuC.jpg" alt="batuC" class="batu-card-img" />
+          <h3 class="batu-card-title">Amethyst</h3>
+          <p class="batu-card-price">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, odit accusamus nobis illo beatae excepturi.</p>
+        </div>
+        <div class="batu-card">
+          <img src="img/batuD.jpg" alt="batuD" class="batu-card-img" />
+          <h3 class="batu-card-title">Rose Quartz</h3>
+          <p class="batu-card-price">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit unde molestias incidunt deleniti temporibus est?</p>
+        </div>
+        <div class="batu-card">
+          <img src="img/batuE.jpg" alt="batuE" class="batu-card-img" />
+          <h3 class="batu-card-title">WhiteJade and BlackOnyx</h3>
+          <p class="batu-card-price">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique facere soluta vero, sequi consectetur modi?</p>
+        </div>
+        <div class="batu-card">
+          <img src="img/batuF.jpg" alt="batuF" class="batu-card-img" />
+          <h3 class="batu-card-title">Strawberry Quartz</h3>
+          <p class="batu-card-price">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium nesciunt nihil quis at numquam aspernatur.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section id="contact" class="contact">
+      <h2>--- Kontak <span>Kami</span> ---</h2>
+      <div class="row">
+        <div class="chat">
+          <h3>Ingin pesan custom?</h3>
+          <h4>Bisa banget! Silakan hubungi kami via WhatsApp 🙂</h4>
+          <img src="img/WA.png" alt="" style="width: 30%" />
+          <a href="https://wa.me/+628886769940" class="wa">Chat Via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-kiri">
+        <img src="img/logo.png" alt="" />
+
+        <div class="content">
+          <h3>Pakai.Batu</h3>
+          <p>Surakarta, Jawa Tengah</p>
+          <p>Copyright &copy; 2024</p>
+        </div>
+      </div>
+      <div class="footer-tengah">
+        <h3>Kerjasama</h3>
+        <div class="content">
+          <p><i data-feather="mail" class="feather"></i> pakaibatu@gmail.com</p>
+          <p><i data-feather="phone" class="feather"></i> 08886769940</p>
+        </div>
+      </div>
+      <div class="footer-tengah">
+        <h3>Event</h3>
+        <div class="content">
+          <ul>
+            <li>Setiap Jumat dan Sabtu di Koridor Gatsu</li>
+            <li>Solo Art Market</li>
+            <li>De Tjolomadoe</li>
+            <li>Rasa Madu Heritage</li>
+            <li>Palka, Jogja</li>
+            <li>Suwatu, Jogja</li>
+            <li>Kita by Inessya</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-kanan">
+        <h3>Media Sosial</h3>
+        <a href="https://instagram.com/pakai.batu"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="shopping-bag"></i></a>
+      </div>
+    </footer>
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
